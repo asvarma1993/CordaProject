@@ -1,0 +1,84 @@
+<form class="notificationForm">
+
+    <div id="page-content-wrapper" style="display:contents;">
+        <div class="container-fluid" style="padding: 15px">
+            <div class="container" style="padding-top: 15px">
+                <h3>Export Inland LC Advising</h3>
+                <table class="table table-bordered">
+                    <tbody>
+                    <tr>
+                        <td>Docy . Credit Number</td><td><span id="lcNumber"></span></td>
+                        <input type="hidden" id="locID">
+                    </tr>
+                    <tr>
+                        <td>Date of  issue</td><td><span id="lcIssueDate"></span></td>
+                    </tr>
+                    <tr>
+                        <td>Applicable Rule code</td><td><span id="applicationRuleCode"></span></td>
+                    </tr>
+                    <tr>
+                        <td>Applicable Rule Description</td><td><span id="appRuleDesc"></span></td>
+                    </tr>
+                    <tr>
+                        <td>Date of Expiry</td><td><span id="lcExpiryDate"></span></td>
+                    </tr>
+                    <tr>
+                        <td>Place of Expiry</td><td><span id="lcIssuePlace"></span></td>
+                    </tr>
+                    <tr>
+                        <td>Applicant Bank</td><td><span id="issuingBankName"></span></td>
+                    </tr>
+                    <tr>
+                        <td>Applicant</td><td><span id="applicantID"></span></td>
+                    </tr>
+                    <tr>
+                        <td>Beneficiary</td><td><span id="beneficiaryName"></span></td>
+                    </tr>
+                    <tr>
+                        <td>Currency code</td><td><span id="currency"></span></td>
+                    </tr>
+                    <tr>
+                        <td>Currency Amount</td><td><span id="amount"></span></td>
+                    </tr>
+                    <tr>
+                        <td>Draft</td><td><span id="draft"></span></td>
+                    </tr>
+                    <tr>
+                        <td>Available with</td><td><span id="creditAvailableWith"></span></td>
+                    </tr>
+                    <tr>
+                        <td>Partial Shipments</td><td><span id="partialShipment"></span></td>
+                    </tr>
+                    <tr>
+                        <td>T Transhipments</td><td><span id="transhipmentShipment"></span></td>
+                    </tr>
+                    <tr>
+                        <td>Place of taking in charge</td><td><span id="placeOfTakingInCharge"></span></td>
+                    </tr>
+                    <tr>
+                        <td>Final destination</td><td><span id="finalDestination"></span></td>
+                    </tr>
+                    <tr>
+                        <td>Latest Date of Shipment</td><td><span id="shipmentDate"></span></td>
+                    </tr>
+                    <tr>
+                        <td>Period for Presenation</td><td><span id="shipmentPeriod"></span></td>
+                    </tr>
+                    <tr>
+                        <td>Description of goods</td><td><span id="descriptionofGoods"></span></td>
+                    </tr>
+                    <tr>
+                        <td>Document Required</td><td><span id="documentsRequired"></span></td>
+                    </tr>
+                    <tr class="adviceButton" style="display:none">
+                        <td><button type="submit" class="btn btn-primary" onclick="processLoCApplication(event)">Advise</button></td><td><span style="padding-left:350px"><button type="submit" class="btn btn-primary notiDetailsPage" onclick="cancelNotiDetails()">Cancel</button></span></td>
+                    </tr>
+                    <tr class="acceptButton" style="display:none">
+                        <td><button type="submit" class="btn btn-primary" onclick="processLoCApplication(event)">Accept</button></td><td><span style="padding-left:350px"><button type="submit" class="btn btn-primary" onclick="amendmentDetails()">Reject</button></span></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</form>

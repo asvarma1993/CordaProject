@@ -1,0 +1,226 @@
+<style>
+    .form-row {
+            padding: 2px;
+        }
+        .card-mat {
+            padding: 10px;
+            width: 100%;
+        }
+         .border {
+            border-style: dotted !important;
+        }
+</style>
+<div class="container-fluid" style="padding: 15px">
+    <div id="form" class="container">
+        <h5>INLAND LC AMENDMENT DETAIL SCREEN</h5><br>
+            <h6>LC Details</h6>
+            <div class="border"></div>
+            <form class="form-horizontal" id="validationForm">
+                <div class="form-row">
+                    <div class="row card-mat">
+                        <div class="col-md-offset-1 col-md-6">
+
+                            <div class="form-row">
+                                <label class="col-md-6 control-label">Beneficiary name</label>
+                                <input name="beneficiaryName" id="beneficiaryName" class="col-md-6 form-control" type="text">
+                            </div>
+
+                            <div class="form-row">
+                                <label class="col-md-6 control-label">LC Currency</label>
+                                <input name="currency" id="currency" placeholder="INR" class="col-md-6 form-control" type="text">
+                            </div>
+
+                            <div class="form-row">
+                                <label class="col-md-6 control-label">LC Amount</label>
+                                <input name="lcamount" id="lcamount" placeholder="" class="col-md-6 form-control" type="number">
+                            </div>
+
+                            <div class="form-row">
+                                <label class="col-md-6 control-label">Increase LC Amount</label>
+                                <input name="incLcAmount" id="incLcAmount" placeholder="" onblur="test('incr')"
+                                    class="col-md-6 form-control" type="number">
+                            </div>
+
+                            <div class="form-row">
+                                <label class="col-md-6 control-label">Decrease LC Amount</label>
+                                <input name="decLcAmount" id="decLcAmount" placeholder="" onblur="test('decr')"
+                                    class="col-md-6 form-control" type="number">
+                            </div>
+                        </div>
+
+                        <div class="col-md-offset-1 col-md-6">
+
+                            <div class="form-row">
+                                <label class="col-md-6 control-label">Amendment No</label>
+                                <input name="amendmentNo" id="amendmentNo" placeholder="01" class="col-md-6 form-control" type="text" disabled>
+                            </div>
+
+                            <div class="form-row">
+                                <label class="col-md-6 control-label">Issue Date</label>
+                                <input name="issuedate" id="issuedate" placeholder="" class="col-md-6 ds form-control"
+                                    type="text">
+                            </div>
+
+                            <div class="form-row">
+                                <label class="col-md-6 control-label">Expiry Date</label>
+                                <input name="expirydate" id="expirydate" placeholder="" class="col-md-6 de form-control"
+                                    type="text">
+                            </div>
+
+                            <div class="form-row">
+                                <label class="col-md-6 control-label">Closure Date</label>
+                                <input name="closureDate" id="closureDate" placeholder="" class="col-md-6 form-control" type="text">
+                            </div>
+
+                            <div class="form-row">
+                                <label class="col-md-6 control-label">Additional Amount Covered</label>
+                                <input name="additionalAmountCovered" id="additionalAmountCovered" placeholder="" class="col-md-6 form-control" type="text">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            <h6>Shipment</h6>
+            <div class="border"></div>
+                <div class="form-row">
+                    <div class="row card-mat">
+                        <div class="col-md-offset-1 col-md-6">
+
+                            <div class="form-row">
+                                <label class="col-md-6 control-label">Latest Shipment Date</label>
+                                <input name="shipmentdate" id="shipmentdate" placeholder="" class="col-md-6 form-control"
+                                    type="text">
+                            </div>
+
+                            <div class="form-row">
+                                <label class="col-md-6 control-label">Shipment Period</label>
+                                <input name="shipmentperiod" id="shipmentperiod" placeholder=""
+                                    class="col-md-6 form-control" type="text">
+                            </div>
+
+                            <div class="form-row">
+                                <label class="col-md-6 control-label">Port of loading</label>
+                                <input name="portofLoading" id="portofLoading" class="col-md-6 form-control" type="text">
+                            </div>
+                        </div>
+
+                        <div class="col-md-offset-1 col-md-6">
+
+                            <div class="form-row">
+                                <label class="col-md-6 control-label">From Place</label>
+                                <input name="fromPlace" id="fromPlace"  placeholder="" class="col-md-6 form-control" type="text">
+                            </div>
+
+                            <div class="form-row">
+                                <label class="col-md-6 control-label">To</label>
+                                <input name="to" id="to" placeholder="" class="col-md-6 form-control" type="text">
+                            </div>
+
+                            <div class="form-row">
+                                <label class="col-md-6 control-label">Port of Discharge</label>
+                                <input name="portOfDischarge" id="portOfDischarge" class="col-md-6 form-control" type="text">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            <h6>Tolerance</h6>
+            <div class="border"></div>
+                <div class="form-row">
+                    <div class="row card-mat">
+                        <div class="col-md-offset-1 col-md-6">
+                            <div class="form-row">
+                                <label class="col-md-6 control-label">Positive Tolerance</label>
+                                <input name="creditAmountTolerance" id="creditAmountTolerance" placeholder class="col-md-6 form-control" type="text">
+                            </div>
+                        </div>
+
+                        <div class="col-md-offset-1 col-md-6">
+                            <div class="form-row">
+                                <label class="col-md-6 control-label">Negative Tolerance</label>
+                                <input name="debitAmountTolerance" id="debitAmountTolerance" placeholder class="col-md-6 form-control" type="text">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            <h6>Narrative</h6>
+            <div class="border"></div>
+
+            <div class="form-group">
+                <label class="col-md-12 control-label"></label>
+                <div class="col-md-12 inputGroupContainer">
+                    <div class="input-group">
+                        <textarea class="form-control" name="comment" placeholder=""></textarea>
+                    </div>
+                </div>
+            </div>
+            <ul>
+                <li><a href="#attachment">Attachment</a></li>
+            </ul>
+
+            <div class="form-group">
+                <label class="control-label"></label>
+                <div class="col-md">
+                    <button type="submit" class="btn btn-primary" onclick="return applyAmendLC(event)">Submit</button>
+                    <span style="padding-left:350px"><button type="submit" class="btn btn-primary">Cancel</button></span>
+                </div>
+            </div>
+            </form>
+        </div>
+</div>
+
+
+    <script>
+        function test(temp) {
+            var sum = 0;
+            var sub = 0;
+            var a = parseInt($("#lcamount").val());
+            var b = parseInt($("#incLcAmount").val());
+            var c = parseInt($("#decLcAmount").val());
+            if (temp == "incr") {
+                sum = a + b;
+                $("#lcamount").val(sum);
+            }else if (temp == "decr") {
+                sub = a - c;
+                $("#lcamount").val(sub);
+            }
+        }
+        $(function () {
+            $("#issuedate").datepicker();
+            $("#expirydate").datepicker();
+            $("#shipmentdate").datepicker();
+            $("#shipmentperiod").datepicker();
+
+            $("input").on("change", function () {
+
+                if ($(this).attr("name") == "expirydate") {
+                    //console.log("expirydate")
+                    if (new Date($("#issuedate").val()) >= new Date($("#expirydate").val())) {
+                        alert("expirydate must be greater than issudate");
+                        //$("input[name='expirydate']").val = "null";
+                    }
+                }
+
+
+                if ($(this).attr("name") == "shipmentdate", $(this).attr("name") == "shipmentperiod") {
+
+                    if (new Date($("#shipmentdate").val()) && new Date($("#shipmentperiod").val())) {
+                        alert("both field should not be inputted");
+                    }
+                }
+                if ((new Date($("#shipmentdate").val()) <= new Date($("#issuedate").val())) ||
+                    (new Date($("#shipmentdate").val()) >= new Date($("#expirydate").val()))) {
+                    alert("check the shipment date");
+                }
+
+                if ($("#lcamount").val() >= 1000000) {
+                    alert("Attach DNB Credit Report of Exporter");
+                }
+
+            });
+
+        });
+
+
+    </script>

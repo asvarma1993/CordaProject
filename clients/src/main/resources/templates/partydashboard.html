@@ -1,0 +1,754 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script src="/js/lib/jquery-3.4.1.min.js" type="text/javascript"></script>
+    <link href="/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" type="text/css" href="/css/jquery-ui-1.12.1.min.css"/>
+    <script src="/js/lib/jquery-ui-1.12.1.min.js" type="text/javascript"></script>
+    <script src="/js/lib/popper.min.js" type="text/javascript"></script>
+    <script src='/js/lib/bootstrap.min.js' type="text/javascript"></script>
+
+    <link rel="stylesheet" href="/css/font-awesome-4.7.0.min.css" type="text/css">
+    <script src="/js/importer.js" type="text/javascript"></script>
+    <script src="/js/loc_common.js"></script>
+    <title th:text="${session.username}">mocking text</title>
+    <style>
+            body {
+              font-family: "Lato", sans-serif;
+            }
+            
+            .sidenav {
+              height: 100%;
+              width: 160px;
+              position: fixed;
+              z-index: 1;
+              top: 0;
+              left: 0;
+              background-color: #111;
+              overflow-x: hidden;
+              padding-top: 20px;
+            }
+            
+            .sidenav a {
+              padding: 6px 8px 6px 16px;
+              text-decoration: none;
+              font-size: 25px;
+              color: #818181;
+              display: block;
+            }
+            
+            .sidenav a:hover {
+              color: #f1f1f1;
+            }
+            
+            .main {
+              margin-left: 160px; /* Same as the width of the sidenav */
+              font-size: 28px; /* Increased text to enable scrolling */
+              padding: 0px 10px;
+            }
+            
+            @media screen and (max-height: 450px) {
+              .sidenav {padding-top: 15px;}
+              .sidenav a {font-size: 18px;}
+            }
+			
+	
+	.dropdown-menu.show {
+		left:150px !important;
+		top:-40px !important;
+		cursor: pointer;
+		}
+	.navbar{
+		background-color: #222;
+	}
+	.nav-tabs {
+		border-bottom: 0px solid #dee2e6;
+	}
+
+	.navbar-right .nav-item{
+		margin:10px;
+		}
+	.bg-light border-right{
+		width:30% !important;
+	}
+	.btn btn-primary{
+		margin: 20px;
+	}
+	.btn-area{
+		text-align: center;
+	}
+	.col-name{
+		padding: 8px;
+		width: 209px;
+	}
+
+     .lcAmount:after {
+       content:"*";
+       color:red;
+    }
+    .lcIssuePlace:after {
+       content:"*";
+       color:red;
+    }
+    .poPIContractIndent:after {
+       content:"*";
+       color:red;
+    }
+    .poAmount:after {
+       content:"*";
+       color:red;
+    }
+    .poDate:after {
+       content:"*";
+       color:red;
+    }
+    .descofGoods:after {
+       content:"*";
+       color:red;
+    }
+    .docRequired:after {
+       content:"*";
+       color:red;
+    }
+
+    </style>
+</head>
+
+<body>
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#"><span style="font-size:25px;font-style:bold;">Welcome</span></a>
+        </div>
+        <ul class="nav nav-tabs justify-content-center" id="nav-tab" role="tablist">
+
+            <li class=" nav-item">
+                <a class="nav-link active" id="pills-accounts-tab" data-toggle="pill" href="#pills-home" role="tab"
+                   aria-controls="pills-home" aria-selected="true">Accounts</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="pills-fundtransfer-tab" data-toggle="pill" href="#pills-profile" role="tab"
+                   aria-controls="pills-profile" aria-selected="false">Fund Transfer</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="pills-trade-tab" data-toggle="pill" href="#pills-contact" role="tab"
+                   aria-controls="pills-contact" aria-selected="false">Trade</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="pills-forexrates-tab" data-toggle="pill" href="#pills-profile" role="tab"
+                   aria-controls="pills-profile" aria-selected="false">Forex Rates</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="pills-mis-tab" data-toggle="pill" href="#pills-contact" role="tab"
+                   aria-controls="pills-contact" aria-selected="false">MIS</a>
+            </li>
+        </ul>
+        <ul class="nav nav-tabs navbar-right">
+            <li class="nav-item"><a href="#"> <span class="fa fa-bell-o fa-2x"></span></a></li>
+            <li class="nav-item"><a href="#"><span class="fa fa-sign-out fa-2x"></span></a></li>
+        </ul>
+    </div>
+</nav>
+<div class="tab-content" id="pills-tabContent">
+    <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-accounts-tab">
+        <div class="d-flex" id="accounts1">
+            <!-- Sidebar -->
+            <div class="bg-light border-right" id="sidebar-wrapper1" style="display: block;width:15% ;">
+
+                <div class="list-group list-group-flush">
+                    <a href="#" class="list-group-item list-group-item-action bg-light">Account Summary</a>
+                    <a href="#" class="list-group-item list-group-item-action bg-light">Transact</a>
+                    <a href="#" class="list-group-item list-group-item-action bg-light">Enquire</a>
+                    <a href="#" class="list-group-item list-group-item-action bg-light">Request</a>
+                </div>
+            </div>
+            <!-- /#sidebar-wrapper -->
+
+            <!-- Page Content -->
+            <div id="page-content-wrapper1" style="display:contents;">
+
+                <div class="container-fluid" style="padding: 15px">
+                    <div class="container" style="padding-top: 15px">
+                        <div class="card">
+                            <h5 class="card-header">Holding's</h5>
+                            <div class="card-body">
+                                <h5 class="card-title">Current Account</h5>
+                                <p class="card-text">Total available balance: <a href="#"
+                                                                                 class="btn btn-primary">INR
+                                    5000000 </a></p>
+                                <h5 class="card-title">Fixed Deposit</h5>
+                                <p class="card-text">Total available balance: <a href="#"
+                                                                                 class="btn btn-primary">INR
+                                    10000000 </a></p>
+                            </div>
+                        </div>
+                        <div class="card" style="height: 250px">
+                            <h5 class="card-header">Outstanding's</h5>
+                            <div class="card-body">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-fundtransfer-tab">
+
+
+    </div>
+    <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-trade-tab">
+
+        <div class="d-flex" id="accounts">
+            <!-- Sidebar -->
+            <div class="bg-light border-right" id="sidebar-wrapper" style="display: block; width:15%;">
+
+                <div class="bg-light border-right dropdown">
+                    <a href="#" class="dropdown list-group-item list-group-item-action bg-light" data-toggle="dropdown">LC
+                        Issuance</a>
+                    <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdown1-1">
+
+                        <li class="dropdown-item" href="#"><i class="fas"></i><a id="lc-form">Import LC’s issuance </a>
+                        </li>
+                        <li class="dropdown-item" href="#"><i class="fas"></i><a>Back to Back LC’s issuance </a></li>
+                        <li class="dropdown-item" href="#"><i class="fas"></i><a id="lc-list">Inland Import LC’s
+                            issuance </a></li>
+                        <li class="dropdown-item" href="#"><i class="fas"></i><a id="lc-alteration">Inland Import LC’s
+                            Alteration </a></li>
+                        <li class="dropdown-item" href="#"><i class="fas"></i><a>Drafts </a></li>
+                    </ul>
+                    <a href="#" class="list-group-item list-group-item-action bg-light">LC Amendment</a>
+                    <a href="#" class="list-group-item list-group-item-action bg-light">Export LC</a>
+                    <a href="#" class="list-group-item list-group-item-action bg-light">Direct Bills</a>
+                    <a href="#" class="list-group-item list-group-item-action bg-light">Collection Bills</a>
+                </div>
+            </div>
+            <div id="page-content-wrapper" style="display:contents;">
+                <div class="trade-main"></div>
+                <div class="lc-form-content">
+                    <form class="create-lc-form" id="create-lc-form">
+                        <blockquote class="blockquote mx-auto" style="padding-left: 65px; padding-right: 65px">
+                            <div class="heading" style="padding-top: 30px; padding-bottom: 10px;">LC
+                                Application</p></div>
+                        </blockquote>
+                        <hr>
+                        <div class="row mx-auto"
+                             style="padding-top: 30px;padding-left: 50px;padding-right: 50px; padding-bottom: 10px">
+                            <div class="col-name">
+                                Beneficiary Name:
+                            </div>
+                            <div class="col">
+                                <input type="text" class="form-control" id="beneficiaryName" value="KENT COMPANY"
+                                       disabled="true">
+                            </div>
+                            <div class="col-name">
+                                Beneficiary Address:
+                            </div>
+                            <div class="col">
+                                <input type="text" class="form-control" id="beneficiaryAddress"
+                                       value="CHENNAI TAMIL NADU" disabled="true">
+                            </div>
+                        </div>
+                        <div class="row mx-auto"
+                             style="padding-top: 30px;padding-left: 50px;padding-right: 50px; padding-bottom: 10px">
+                            <div class="col-name">
+                                LC Currency:
+                            </div>
+                            <div class="col">
+                                <input type="text" class="form-control" id="currency" value="INR" disabled="true">
+                            </div>
+                            <div class="col-name lcAmount">
+                                LC Amount:
+                            </div>
+                            <div class="col">
+                                <input type="number" class="form-control" id="amount" name="amount"
+                                       placeholder="LC Amount" required="true">
+                            </div>
+                        </div>
+                        <div class="row mx-auto"
+                             style="padding-top: 30px;padding-left: 50px;padding-right: 50px; padding-bottom: 10px">
+                            <div class="col-name">
+                                Debit Tolerance %:
+                            </div>
+                            <div class="col">
+                                <input type="text" class="form-control" id="debitAmountTolerance"
+                                       placeholder="Debit Amount Tolerance %">
+                            </div>
+                            <div class="col-name">
+                                Credit Tolerance %:
+                            </div>
+                            <div class="col">
+                                <input type="text" class="form-control" id="creditAmountTolerance"
+                                       placeholder="Credit Amount Tolerance %">
+                            </div>
+                        </div>
+                        <div class="row mx-auto"
+                             style="padding-top: 30px;padding-left: 50px;padding-right: 50px; padding-bottom: 10px">
+                            <div class="col-name">
+                                LC Issue Date:
+                            </div>
+                            <div class="col">
+                                <input type="text" class="form-control" id="lcIssueDate">
+                            </div>
+                            <div class="col-name">
+                                LC Expiry Date:
+                            </div>
+                            <div class="col">
+                                <input type="text" class="form-control" id="lcExpiryDate">
+                            </div>
+                        </div>
+                        <div class="row mx-auto"
+                             style="padding-top: 30px;padding-left: 50px;padding-right: 50px; padding-bottom: 10px">
+                            <div class="col-name lcIssuePlace">
+                                LC Expiry Place:
+                            </div>
+                            <div class="col">
+                                <input type="text" class="form-control" id="lcIssuePlace" name="lcIssuePlace">
+                            </div>
+                            <div class="col-name">
+                                Presentation Days:
+                            </div>
+                            <div class="col">
+                                <input type="number" class="form-control" id="presentationDays" name="presentationDays">
+                            </div>
+                        </div>
+                        <div class="row mx-auto"
+                             style="padding-top: 30px;padding-left: 50px;padding-right: 50px; padding-bottom: 10px">
+                            <div class="col-name">
+                                Shipment Date:
+                            </div>
+                            <div class="col">
+                                <input type="text" class="form-control" id="shipmentDate" name="shipmentDate">
+                            </div>
+                            <div class="col-name">
+                                Shipment Period:
+                            </div>
+                            <div class="col">
+                                <input type="number" class="form-control" id="shipmentPeriod" name="shipmentPeriod">
+                            </div>
+                        </div>
+                        <div class="row mx-auto"
+                             style="padding-top: 30px;padding-left: 50px;padding-right: 50px; padding-bottom: 10px">
+                            <div class="col-name">
+                                Inco Terms:
+                            </div>
+                            <div class="col">
+                                <input type="text" class="form-control" id="incoTerms" name="incoTerms">
+                            </div>
+                            <div class="col-name">
+                                Partial Shipment:
+                            </div>
+                            <div class="col">
+                                <select class="form-control" id="partialShipment">
+                                    <option></option>
+                                    <option>Not Allowed</option>
+                                    <option>Permitted</option>
+                                </select>
+                            </div>
+                            <div class="col-name">
+                                Transhipment Shipment:
+                            </div>
+                            <div class="col">
+                                <select class="form-control" id="transhipmentShipment">
+                                    <option></option>
+                                    <option>Not Allowed</option>
+                                    <option>Permitted</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row mx-auto"
+                             style="padding-top: 30px;padding-left: 50px;padding-right: 50px; padding-bottom: 10px">
+                            <div class="col-name">
+                                Port Of Loading:
+                            </div>
+                            <div class="col">
+                                <input type="text" class="form-control" id="portofLoading" name="portofLoading">
+                            </div>
+                            <div class="col-name">
+                                Port Of Discharge:
+                            </div>
+                            <div class="col">
+                                <input type="text" class="form-control" id="portOfDischarge" name="portOfDischarge">
+                            </div>
+                        </div>
+                        <div class="row mx-auto"
+                             style="padding-top: 30px;padding-left: 50px;padding-right: 50px; padding-bottom: 10px">
+                            <div class="col-name">
+                                Place Of Taking In Charge:
+                            </div>
+                            <div class="col">
+                                <input type="text" class="form-control" id="placeOfTakingInCharge" name="placeOfTakingInCharge">
+                            </div>
+                            <div class="col-name">
+                                Final Destination:
+                            </div>
+                            <div class="col">
+                                <input type="text" class="form-control" id="finalDestination" name="finalDestination">
+                            </div>
+                        </div>
+                        <hr>
+                        <blockquote class="blockquote mx-auto" style="padding-left: 65px; padding-right: 65px">
+                            <p class="mb-0">Parties to LC</p>
+                        </blockquote>
+                        <div class="row mx-auto"
+                             style="padding-top: 30px;padding-left: 50px;padding-right: 50px; padding-bottom: 10px">
+                            <div class="col-name">
+                                Issuing Bank Name:
+                            </div>
+                            <div class="col">
+                                <input type="text" class="form-control" id="issuingBankName" value="TT BANK"
+                                       disabled="true" name="issuingBankName">
+                            </div>
+                            <div class="col-name">
+                                Issuing Bank Address:
+                            </div>
+                            <div class="col">
+                                <input type="text" class="form-control" id="issuingBankAddress" name="issuingBankAddress" value="Mumbai"
+                                       disabled="true">
+                            </div>
+                        </div>
+                        <div class="row mx-auto"
+                             style="padding-top: 30px;padding-left: 50px;padding-right: 50px; padding-bottom: 10px">
+                            <div class="col-name">
+                                Advising Bank Name:
+                            </div>
+                            <div class="col">
+                                <input type="text" class="form-control" id="advisingBankID" name="advisingBankID" value="BKC BANK"
+                                       disabled="true">
+                            </div>
+                            <div class="col-name">
+                                Advising Bank Address:
+                            </div>
+                            <div class="col">
+                                <input type="text" class="form-control" id="advisingBankAddress" name="advisingBankAddress" value="CHENNAI"
+                                       disabled="true">
+                            </div>
+                        </div>
+                        <div class="row mx-auto"
+                             style="padding-top: 30px;padding-left: 50px;padding-right: 50px; padding-bottom: 10px">
+                            <div class="col-name">
+                                Credit Available By:
+                            </div>
+                            <div class="col">
+                                <select class="form-control" id="creditAvailableBy">
+                                    <option value=" ">Select</option>
+                                    <option>Acceptance</option>
+                                    <option>Negotiation</option>
+                                    <option>Payment</option>
+                                    <option>Defered Payment</option>
+                                </select>
+                            </div>
+                            <div class="col-name">
+                                Credit Available with:
+                            </div>
+                            <div class="col">
+                                <select name="creditAvalWith" class="form-control" id="creditAvailableWith">
+                                    <option value=" ">Select</option>
+                                    <option>Any Bank</option>
+                                    <option>Negotiation restricted to</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row mx-auto negotiationSelect"
+                             style="padding-top: 30px;padding-left: 50px;padding-right: 50px; padding-bottom: 10px; display:none">
+                            <div class="col-name">
+                                Bank Name:
+                            </div>
+                            <div class="col">
+                                <input type="text" class="form-control" id="bankName" name="bankName" placeholder="Bank Name">
+                            </div>
+                            <div class="col-name">
+                                Address:
+                            </div>
+                            <div class="col">
+                                <input type="text" class="form-control" id="bankAddress" name="bankAddress" placeholder="Address">
+                            </div>
+                            <div class="col-name">
+                                IFSC Code:
+                            </div>
+                            <div class="col">
+                                <input type="text" class="form-control" id="iFSCCode" name="iFSCCode" placeholder="IFSC Code">
+                            </div>
+                        </div>
+                        <hr>
+                        <blockquote class="blockquote mx-auto" style="padding-left: 65px; padding-right: 65px">
+                            <p class="mb-0">Document and Condition</p>
+                        </blockquote>
+                        <div class="form-check form-check-inline mx-auto row"
+                             style="padding-left: 65px; padding-right: 65px">
+                            <div class="col-name">
+                                Draft:
+                            </div>
+                            <input class="form-check-input" type="radio" name="draftRadio" id="atSightRadio" value="At sight">
+                            <label class="form-check-label">At sight</label>
+                        </div>
+                        <div class="form-check form-check-inline mx-auto row"
+                             style="padding-left: 65px; padding-right: 65px">
+                            <input class="form-check-input" type="radio" name="draftRadio" id="atUsageRadio" value="At usage">
+                            <label class="form-check-label">At usage</label>
+                        </div>
+                        <div class="row mx-auto"
+                             style="padding-left: 50px;padding-right: 50px; padding-bottom: 10px;padding-top: 10px">
+                            <div class="col-name poPIContractIndent">
+                                PO/PI/Contract / Indent Reference No:
+                            </div>
+                            <div class="col">
+                                <input type="text" class="form-control" name="poPIContractIndent" id="poPIContractIndent"
+                                       placeholder="PO/PI/Contract/Indent Reference No:">
+                            </div>
+                            <div class="col-name poAmount">
+                                PO Amount:
+                            </div>
+                            <div class="col">
+                                <input type="number" class="form-control" name="poAmount" id="poAmount" placeholder="PO Amount">
+                            </div>
+                        </div>
+                        <div class="row mx-auto"
+                             style="padding-left: 50px;padding-right: 50px; padding-bottom: 10px;padding-top: 10px">
+                            <div class="col-name poDate">
+                                Date:
+                            </div>
+                            <div class="col">
+                                <input type="text" class="form-control" id="poDate" name="poDate" placeholder="DD/MM/YYYY">
+                            </div>
+                            <div class="col-name descofGoods">
+                                Description Of Goods:
+                            </div>
+                            <div class="col">
+                                <input type="text" class="form-control" name="descofGoods" id="descofGoods"
+                                       placeholder="Description of Goods">
+                            </div>
+                        </div>
+                        <div class="row mx-auto"
+                             style="padding-left: 50px;padding-right: 50px; padding-bottom: 10px;padding-top: 10px">
+                            <div class="col-name docRequired">
+                                Documentation Required:
+                            </div>
+                            <div class="col">
+                                <input type="text" class="form-control" name="docsRequired" id="docsRequired"
+                                       placeholder="Documentation Required">
+                            </div>
+                            <div class="col-name">
+                                Additional Condition:
+                            </div>
+                            <div class="col">
+                                <input type="text" class="form-control" name="addtlCondition" id="addtlCondition"
+                                       placeholder="Additional Condition">
+                            </div>
+                        </div>
+                        <hr>
+                        <blockquote class="blockquote mx-auto" style="padding-left: 65px; padding-right: 65px">
+                            <p class="mb-0">Margin</p>
+                        </blockquote>
+                        <div class="form-check form-check-inline"
+                             style="padding-left: 65px;padding-right: 65px; padding-bottom: 10px">
+                            <input class="form-check-input" type="checkbox"  name="marginRequired" id="marginRequired">
+                            <label class="form-check-label">Margin Required</label>
+                        </div>
+                        <div class="row mx-auto"
+                             style="padding-left: 50px;padding-right: 50px; padding-bottom: 10px;padding-top: 10px">
+                            <div class="col-name">
+                                Margin Percent:
+                            </div>
+                            <div class="col">
+                                <input type="text" class="form-control" id="marginPercent" name="marginPercent" placeholder="Margin Percent">
+                            </div>
+                            <div class="col-name">
+                                Margin Debit Account:
+                            </div>
+                            <div class="col">
+                                <input type="text" class="form-control" name="marginDebitAccount" id="marginDebitAccount"
+                                       placeholder="Margin Debit Amount">
+                            </div>
+                        </div>
+                        <div class="row mx-auto"
+                             style="padding-left: 50px;padding-right: 50px; padding-bottom: 10px;padding-top: 10px">
+                            <div class="col-name">
+                                Margin Amount:
+                            </div>
+                            <div class="col">
+                                <input type="text" class="form-control" id="marginAmount" name="marginAmount" placeholder="Margin Amount">
+                            </div>
+                            <div class="col-name">
+                                Margin Credit Account:
+                            </div>
+                            <div class="col">
+                                <input type="text" class="form-control" name="marginCreditAccount" id="marginCreditAccount"
+                                       placeholder="Margin Credit Amount">
+                            </div>
+                        </div>
+                        <hr>
+                        <blockquote class="blockquote mx-auto" style="padding-left: 65px; padding-right: 65px">
+                            <p class="mb-0">Charges from: </p>
+                        </blockquote>
+                        <div class="form-check form-check-inline"
+                             style="padding-left: 65px;padding-right: 65px; padding-bottom: 10px">
+                            <input class="form-check-input" type="radio" name="chargesFormRadio" id="chargesNoneRadio" value="None">
+                            <label class="form-check-label">None</label>
+                        </div>
+                        <div class="form-check form-check-inline"
+                             style="padding-left: 65px;padding-right: 65px; padding-bottom: 10px">
+                            <input class="form-check-input" type="radio" name="chargesFormRadio" id="chargesOpenerRadio" value="Opener">
+                            <label class="form-check-label">Opener</label>
+                        </div>
+                        <div class="form-check form-check-inline"
+                             style="padding-left: 65px;padding-right: 65px; padding-bottom: 10px">
+                            <input class="form-check-input" type="radio" name="chargesFormRadio" id="chargesBeneficiaryRadio" value="Beneficiary">
+                            <label class="form-check-label">Beneficiary</label>
+                        </div>
+                        <blockquote class="blockquote mx-auto" style="padding-left: 65px; padding-right: 65px">
+                            <p class="mb-0">Commission Party Charge: </p>
+                        </blockquote>
+                        <div class="form-check form-check-inline"
+                             style="padding-left: 65px;padding-right: 65px; padding-bottom: 10px">
+                            <input class="form-check-input" type="radio" name="commissionPartyRadio" id="commissionNoneRadio" value="None">
+                            <label class="form-check-label">None</label>
+                        </div>
+                        <div class="form-check form-check-inline"
+                             style="padding-left: 65px;padding-right: 65px; padding-bottom: 10px">
+                            <input class="form-check-input" type="radio" name="commissionPartyRadio" id="commissionOpenerRadio" value="Opener">
+                            <label class="form-check-label">Opener</label>
+                        </div>
+                        <div class="form-check form-check-inline"
+                             style="padding-left: 65px;padding-right: 65px; padding-bottom: 10px">
+                            <input class="form-check-input" type="radio" name="commissionPartyRadio" id="commissionBeneficiaryRadio" value="Beneficiary">
+                            <label class="form-check-label">Beneficiary</label>
+                        </div>
+                        <hr>
+                        <p class="text-break" style="padding-left: 65px;padding-right: 65px; padding-bottom: 10px">
+                            Inland transit
+                            Insurance policy, for at least the invoice value of the goods plus 10 pct
+                            endorsed in blank, covering Inland transit risk as per Inland transit clauses (a), SRCC as
+                            per institute
+                            strike clauses (cargo) with claims payable irrespective of percentage, should accompany the
+                            transport
+                            documents. Insurance to cover from supplier’s warehouse to opener warehouse at:</p>
+                        <div class="row mx-auto" style="padding-left: 65px;padding-right: 65px; padding-bottom: 10px">
+                            <input type="text" class="form-control" placeholder="">
+                        </div>
+                        <p class="text-break" style="padding-left: 65px;padding-right: 65px; padding-bottom: 10px">
+                            Insurance covered by
+                            applicant A certificate from the beneficiary certifying that they have Faxed, immediately on
+                            dispatch,
+                            details of
+                            dispatch covering
+                            (a) Name of the carrier<br>
+                            (b) Railway receipt no. or Lorry receipt no.<br>
+                            (c) Place of taking in charge <br>
+                            (d) Place of final destination , to<br></p>
+                        <div class="row mx-3" style="padding-left: 65px;padding-right: 65px; padding-bottom: 10px">
+                            <input type="text" class="form-control"
+                                   placeholder="Name and Address of the Insurance company">
+                        </div>
+                        <p class="text-break" style="padding-left: 65px;padding-right: 65px; padding-bottom: 10px">
+                            quoting Insurance policy number: <br></p>
+                        <div class="row mx-3" style="padding-left: 65px;padding-right: 65px; padding-bottom: 10px">
+                            <input type="text" class="form-control"
+                                   placeholder="Name and Address of the Insurance company">
+                        </div>
+                        <p class="text-break" style="padding-left: 65px;padding-right: 65px; padding-bottom: 10px">
+                            dated: <br></p>
+                        <div class="row mx-3" style="padding-left: 65px;padding-right: 65px; padding-bottom: 10px">
+                            <input type="text" class="form-control"
+                                   placeholder="Name and Address of the Insurance company">
+                        </div>
+                        <div class="form-check" style="padding-left: 65px;padding-right: 65px; padding-bottom: 10px">
+                            <input class="form-check-input" type="checkbox" name="agreeCheck"  id="agreeCheck" required>
+                            <label class="form-check-label" for="agreeCheck">
+                                We agree to terms & Condition
+                            </label>
+                        </div>
+
+                        <div class="btn-area">
+                            <button type="button" class="btn btn-primary" id="saveAndDraft" onclick="saveLoCApplicationAsDraft()">Save As
+                                Draft
+                            </button>
+                            <button type="button" class="btn btn-primary locSubmit" onclick="return createLoCApplication()" disabled>Submit
+                            </button>
+                            <button type="reset" class="btn btn-primary">Reset</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="lc-from-response">
+
+                </div>
+                <div class="notification-locForm" style="display:none">
+
+                </div>
+                <div class="notification-details" style="display:none">
+
+                </div>
+                <div class="lc-app-list">
+                    <table id="app-list-table" class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th>LC ID</th>
+                            <th>Operation type</th>
+                            <th>Customer Name</th>
+                            <th>Beneficiary</th>
+                            <th>Currency</th>
+                            <th>Amount</th>
+                            <th>Action</th>
+                            <th style="visibility:hidden;">UID</th>
+                        </tr>
+                        </thead>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div id="lcModal" class="modal fade">
+    <div class="modal-dialog modal-confirm">
+        <div class="modal-content">
+            <div class="modal-header">
+            </div>
+            <div class="modal-body">
+                <p class="text-center lcSuccessMsg"></p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary btn-block" data-dismiss="modal">OK</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $(document).ready(function () {
+
+      $('.navbar .dropdown-item').on('click', function (e) {
+        var $el = $(this).children('.dropdown-toggle');
+        var $parent = $el.offsetParent(".dropdown-menu");
+        $(this).parent("li").toggleClass('open');
+
+        if (!$parent.parent().hasClass('navbar-nav')) {
+          if ($parent.hasClass('show')) {
+            $parent.removeClass('show');
+            $el.next().removeClass('show');
+            $el.next().css({ "top": -999, "left": -999 });
+          } else {
+            $parent.parent().find('.show').removeClass('show');
+            $parent.addClass('show');
+            $el.next().addClass('show');
+            $el.next().css({ "top": $el[0].offsetTop, "left": $parent.outerWidth() - 4 });
+          }
+          e.preventDefault();
+          e.stopPropagation();
+        }
+      });
+
+      $('.navbar .dropdown').on('hidden.bs.dropdown', function () {
+        $(this).find('li.dropdown').removeClass('show open');
+        $(this).find('ul.dropdown-menu').removeClass('show open');
+      });
+
+    });
+  </script>
+</body>
+
+</html>
